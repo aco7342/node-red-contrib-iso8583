@@ -1,0 +1,57 @@
+<script type="text/javascript">
+    RED.nodes.registerType('Iso-8583w',{
+        category: 'function',
+        color: '#E6E0F8',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "function.png",
+        label: function() {
+            return this.name||"Iso-8583w";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="Iso-8583w">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="Iso-8583w">
+<p>A Convert <code>msg.payload</code> into/from Iso-8583 message</p>
+<pre>If Input like a</b>
+       msg.payload = [</b>
+            [0, "0200"],</b>
+            [2, "60197105032103634"],</b>
+            [3, "001000"],</b>
+            [4, "15075"],</b>
+            [7, "0429104720"],</b>
+            [11, "456"],</b>
+            [12, "112233"],</b>
+            [41, "44449999"],</b>
+            [22, "02"],</b>
+            [125, "BLAH BLAH"]</b>
+       ];</b>
+    Output must be</b>
+       0200F2300400008000000000000000000008170601971050321036340010000000000150750429104720000456112233000234343434393939390009424C414820424C4148
+    </pre></b></b>    
+<pre>And If input is a</b>
+       0200F2300400008000000000000000000008170601971050321036340010000000000150750429104720000456112233000234343434393939390009424C414820424C4148
+</b>
+    Output</b>
+       [ { key: '0', value: '0200' }, ,</b>
+         { key: '2', value: '60197105032103634' },</b>
+         { key: '3', value: '001000' },</b>
+         { key: '4', value: '000000015075' },</b>
+         { key: '7', value: '0429104720' },</b>
+         { key: '11', value: '000456' },</b>
+         { key: '12', value: '112233' },</b>
+         { key: '22', value: '002' },</b>
+         { key: '41', value: '44449999' },</b>
+         ... 26 more items 
+       ]</pre></b>
+</script>

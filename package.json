@@ -1,0 +1,23 @@
+{
+  "name": "node-red-contrib-node-iso8583",
+  "version": "0.0.1",
+  "license": "Apache-2.0",
+  "description": "A Node-RED node that convert array into ISO8583 msg or msg txt Iso8583 into array",
+  "dependencies": {
+    "iso-8583": "^1.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/s-a/iso-8583"
+  },
+  "node-red": {
+    "nodes": {
+      "Iso8583": "wrapper_iso8583.js"
+    }
+  },
+  "author": {
+    "name": "Antonio Carlos Oliveiras",
+    "email": "acoliveira@terra.com.br",
+    "url": "https://github.com/aco7342/node-red-contrib-iso8583" 
+  }
+}
